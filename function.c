@@ -55,7 +55,7 @@ void getPassword(char password[], int maxLength) {
             password[index] = '\0';
             break;
         } else if (ch == '\b') {  
-		// nhan phim Backspace (\b), ky tu cuoi cung trong mang password se bi xaa (neu co). Đong thoi, ky tu hien thi tren man hinh cung bi xoa bang cach su dung chuoi "\b \b".
+		// nhan phim Backspace (\b), ky tu cuoi cung trong mang password se bi xaa (neu co). �ong thoi, ky tu hien thi tren man hinh cung bi xoa bang cach su dung chuoi "\b \b".
             if (index > 0) {
                 index--;
                 printf("\b \b");  // Xoa ki tu da hien thi 
@@ -249,7 +249,7 @@ void menu(){
 	int numScores = 0;
     int choice;
     do {
-        // Hien thi menu chính
+        // Hien thi menu ch�nh
         printf("+------------------------------------------+\n");
 		printf("%-8s %-33s %s\n","|","STUDENT MANAGEMENT SYSTEM", "|");
         printf("+------------------------------------------+\n");
@@ -315,7 +315,7 @@ void displayUsageInstructions() {// hien thi bang huong dan su dung
 void adminMenu(){
 	int choice;
     do {
-        // Hien thi menu chính
+        // Hien thi menu ch�nh
         printf("+------------------------------------------+\n");
 		printf("%-8s %-33s %s\n","|","STUDENT MANAGEMENT SYSTEM", "|");
         printf("+------------------------------------------+\n");
@@ -711,8 +711,8 @@ void addStudent(struct student students[], int *numStudents) {
 
     fclose(file);
 
-    students[*numStudents] = newStudent; // Save new student to array
-    (*numStudents)++;  // Increase the number of students after adding a new student
+    students[*numStudents] = newStudent; 
+    (*numStudents)++;  
     printf("Added Student Successfully!\n");
 }
 
@@ -781,7 +781,7 @@ int findStudentIndex(struct student students[], int numStudents, const char* stu
     return -1;
 }
 
-// Ham chinh sua thông tin sinh viên
+// Ham chinh sua th�ng tin sinh vi�n
 void editStudent(struct student students[], int numStudents) {
     char studentId[20];
     int index;
@@ -789,14 +789,14 @@ void editStudent(struct student students[], int numStudents) {
     printf("Enter Student ID to edit: ");
     scanf("%s", studentId);
 
-    // T́m ki?m sinh viên theo mă sinh viên
+    // Tim kiem thong tin sinh vien theo ma sinh vien 
     index = findStudentIndex(students, numStudents, studentId);
     if (index == -1) {
         printf("Student not found!\n");
         return;
     }
 
-    // Nh?p các thông tin m?i cho sinh viên
+    // Nhap cac thong tin sinh vien 
     printf("Enter new Classroom ID: ");
     scanf("%s", students[index].classroomId);
 
@@ -830,7 +830,7 @@ void deleteStudentById(struct student students[], int *numStudents, const char* 
         if (strcmp(students[i].studentId, studentId) == 0) {
             printf("Deleting student with ID %s\n", studentId);
 
-            // Xac nhan xoa sinh viên
+            // Xac nhan xoa sinh vi�n
             char confirmation;
             printf("Are you sure you want to delete student with ID %s? (y/n): ", studentId);
             scanf(" %c", &confirmation);
@@ -839,7 +839,7 @@ void deleteStudentById(struct student students[], int *numStudents, const char* 
                 return;
             }
 
-            // Di chuyen tat ca các phan tu sau sinh viên bi xoa lên mot vi tri 
+            // Di chuyen tat ca c�c phan tu sau sinh vi�n bi xoa l�n mot vi tri 
             int j = i;
             for (j; j < *numStudents - 1; ++j) {
                 students[j] = students[j + 1];
@@ -863,7 +863,7 @@ void sortStudents(struct student students[], int numStudents, int sortOrder) {
             int compareResult = strcmp(students[j].name, students[j + 1].name);
             //neu lua chon la 1 va ten 1 lon hon ten 2 thi doi cho 
             if ((sortOrder == 1 && compareResult > 0) || (sortOrder == 2 && compareResult < 0)) {
-                // Hoan doi hai sinh viên
+                // Hoan doi hai sinh vi�n
                 temp = students[j];
                 students[j] = students[j + 1];
                 students[j + 1] = temp;
@@ -896,7 +896,7 @@ void sortMenu(struct student students[], int numStudents) {
             break;
         default:
             printf("Invalid choice. Please try again.\n");
-            sortMenu(students, numStudents); // G?i l?i menu con n?u l?a ch?n không h?p l?
+            sortMenu(students, numStudents); 
     }
 }
 
@@ -1093,7 +1093,7 @@ int isUniqueTeacherPhone(struct Teacher teachers[], int numTeachers, char phone[
 
 void addTeacher(struct Teacher teachers[], int *numTeachers) {
     FILE *file;
-    file = fopen(fileteachers, "a"); // M? t?p v?i ch? d? "a" (append)
+    file = fopen(fileteachers, "a"); 
 
     if (file == NULL) {
         printf("Error opening file!\n");
@@ -1102,7 +1102,6 @@ void addTeacher(struct Teacher teachers[], int *numTeachers) {
 
     struct Teacher newTeacher;
 
-    // Nh?p thông tin giáo viên v?i các ki?m tra h?p l?
     while (1) {
         printf("Enter Teacher ID: ");
         scanf("%s", newTeacher.teacherId);
@@ -1213,7 +1212,6 @@ void addTeacher(struct Teacher teachers[], int *numTeachers) {
         break;
     }
 
-    // Ghi thông tin giáo viên vào t?p
       if (fprintf(file, "%s %s %s %d/%d/%d %d %s %s %s %d\n",
                newTeacher.teacherId,
                newTeacher.classroomId,
@@ -1233,8 +1231,8 @@ void addTeacher(struct Teacher teachers[], int *numTeachers) {
 
     fclose(file);
 
-    teachers[*numTeachers] = newTeacher; // Luu giáo viên m?i vào m?ng
-    (*numTeachers)++;  // Tang s? lu?ng giáo viên sau khi thêm giáo viên m?i
+    teachers[*numTeachers] = newTeacher; 
+    (*numTeachers)++;  
     printf("Added Teacher Successfully!\n");
 }
 
@@ -1301,7 +1299,7 @@ int findTeacherIndex(struct Teacher teachers[], int numTeachers, const char* tea
     return -1;
 }
 
-// Ham chinh sua thông tin giao vien
+// Ham chinh sua th�ng tin giao vien
 void editTeacher(struct Teacher teachers[], int numTeachers) {
     char teacherId[20];
     int index;
@@ -1309,14 +1307,12 @@ void editTeacher(struct Teacher teachers[], int numTeachers) {
     printf("Enter Student ID to edit: ");
     scanf("%s", &teacherId);
 
-    // T́m ki?m sinh viên theo mă sinh viên
     index = findTeacherIndex(teachers, numTeachers, teacherId);
     if (index == -1) {
         printf("Student not found!\n");
         return;
     }
 
-    // Nh?p các thông tin m?i cho sinh viên
     printf("Enter new Classroom ID: ");
     scanf("%s", teachers[index].classroomId);
 
@@ -1353,7 +1349,7 @@ void deleteTeacherById(struct Teacher teachers[], int *numTeachers, const char* 
         if (strcmp(teachers[i].teacherId, teacherId) == 0) {
             printf("Deleting teacher with ID %s\n", teacherId);
 
-            // Xac nhan xoa sinh viên
+            // Xac nhan xoa sinh vi�n
             char confirmation;
             printf("Are you sure you want to delete student with ID %s? (y/n): ", teacherId);
             scanf(" %c", &confirmation);
@@ -1362,7 +1358,7 @@ void deleteTeacherById(struct Teacher teachers[], int *numTeachers, const char* 
                 return;
             }
 
-            // Di chuyen tat ca các phan tu sau sinh viên bi xoa lên mot vi tri 
+            // Di chuyen tat ca c�c phan tu sau sinh vi�n bi xoa l�n mot vi tri 
             int j = i;
             for (j; j < *numTeachers - 1; ++j) {
                 teachers[j] = teachers[j + 1];
@@ -1386,7 +1382,7 @@ void sortTeachers(struct Teacher teachers[], int numTeachers, int sortOrder) {
             int compareResult = strcmp(teachers[j].name, teachers[j + 1].name);
             //neu lua chon la 1 va ten 1 lon hon ten 2 thi doi cho 
             if ((sortOrder == 1 && compareResult > 0) || (sortOrder == 2 && compareResult < 0)) {
-                // Hoan doi hai sinh viên
+                // Hoan doi hai sinh vi�n
                 temp = teachers[j];
                 teachers[j] = teachers[j + 1];
                 teachers[j + 1] = temp;
@@ -1419,7 +1415,7 @@ void sortTeacherMenu(struct Teacher teachers[], int numTeachers) {
             break;
         default:
             printf("Invalid choice. Please try again.\n");
-            sortTeacherMenu(teachers, numTeachers); // G?i l?i menu con n?u l?a ch?n không h?p l?
+            sortTeacherMenu(teachers, numTeachers); 
     }
 }
 
@@ -1435,7 +1431,6 @@ int isUniqueClassID(struct Classroom classes[], int numClasses, char id[]) {
     return 1;
 }
 
-// Ki?m tra Teacher ID duy nh?t
 int isUniqueTeacherClassID(struct Classroom classes[], int numClasses, char teacherId[]) {
     int i=0;
 	for (i; i < numClasses; i++) {
@@ -1663,9 +1658,7 @@ void sortClasses(struct Classroom classes[], int numClasses, int sortOrder) {
     for (i; i < numClasses - 1; ++i) {
         for (j; j < numClasses - 1 - i; ++j) {
             int compareResult = strcmp(classes[j].classroomName, classes[j + 1].classroomName);
-            // N?u l?a ch?n là 1 và tên l?p 1 l?n hon tên l?p 2 th́ d?i ch?
             if ((sortOrder == 1 && compareResult > 0) || (sortOrder == 2 && compareResult < 0)) {
-                // Hoán d?i hai l?p h?c
                 temp = classes[j];
                 classes[j] = classes[j + 1];
                 classes[j + 1] = temp;
@@ -1674,14 +1667,13 @@ void sortClasses(struct Classroom classes[], int numClasses, int sortOrder) {
     }
 
     if (sortOrder == 1) {
-        printf("Classes sorted by name in ascending order:\n"); // Tang d?n
+        printf("Classes sorted by name in ascending order:\n"); 
     } else if (sortOrder == 2) {
-        printf("Classes sorted by name in descending order:\n"); // Gi?m d?n
+        printf("Classes sorted by name in descending order:\n"); 
     }
     printClasses(classes, numClasses);
 }
 
-// Menu s?p x?p các l?p h?c
 void sortClassMenu(struct Classroom classes[], int numClasses) {
     int sortOrder;
     printf("1. Sort Ascending\n");
@@ -1691,14 +1683,14 @@ void sortClassMenu(struct Classroom classes[], int numClasses) {
 
     switch (sortOrder) {
         case 1:
-            sortClasses(classes, numClasses, 1); // Tang d?n
+            sortClasses(classes, numClasses, 1); 
             break;
         case 2:
-            sortClasses(classes, numClasses, 2); // Gi?m d?n
+            sortClasses(classes, numClasses, 2); 
             break;
         default:
             printf("Invalid choice. Please try again.\n");
-            sortClassMenu(classes, numClasses); // G?i l?i menu con n?u l?a ch?n không h?p l?
+            sortClassMenu(classes, numClasses); 
     }
 }
 
@@ -1920,3 +1912,4 @@ void editScore(struct score scores[], int numScores) {
         printf("Student ID %s not found!\n", studentId);
     }
 }
+

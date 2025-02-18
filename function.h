@@ -4,7 +4,7 @@
 
 #include "datatype.h" // Bao g?m t?p datatype.h
 
-// Khai bÃ¡o nguyÃªn m?u hÃ m
+// Khai báo nguyên m?u hàm
 // cac ham kiem tra du lieu :
 int isValidEmail(char email[]) ;
 int isUniqueID(struct student students[], int numStudents, char id[]);

@@ -1,5 +1,5 @@
 #ifndef DATATYPE_H  // N?u DATATYPE_H chua du?c d?nh nghia
-#define DATATYPE_H  // Ä?nh nghia DATATYPE_H
+#define DATATYPE_H  // Ğ?nh nghia DATATYPE_H
 #include <stdbool.h>
 #define MAX_STUDENTS 100
 #define MAX_TEACHERS 100
@@ -104,7 +104,7 @@ struct Classroom {
     int classCount;
     char teacherId[10];
     char classroomName[10];
-    int studentCount; // ThÃªm bi?n d? theo dÆ¡i s? lu?ng sinh viÃªn
+    int studentCount; // Thêm bi?n d? theo dõi s? lu?ng sinh viên
 };
 
 struct Teacher {
@@ -183,4 +183,4 @@ struct score {
     double midtermExamScore;
     double finalExamScore;
 };
-#endif  // K?t thÃºc b?o v? t?p tiÃªu d?
+#endif  // K?t thúc b?o v? t?p tiêu d?

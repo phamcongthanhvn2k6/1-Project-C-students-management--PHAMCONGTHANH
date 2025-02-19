@@ -10,8 +10,8 @@ const char *fileclass = "C:\\Users\\LEGION\\OneDrive\\Documents\\C\\1 Project C 
 const char *fileadmin = "C:\\Users\\LEGION\\OneDrive\\Documents\\C\\1 Project C students management\\admin.bin";
 const char *filescore = "C:\\Users\\LEGION\\OneDrive\\Documents\\C\\1 Project C students management\\score.bin";
 
-#define MAX_ADMINS 100 // Maximum number of admin accounts
-#define MAX_LENGTH 100  // Maximum length of email and password
+#define MAX_ADMINS 100 
+#define MAX_LENGTH 100  
 struct score scores[100];
 int numScores = 0;
 
@@ -55,7 +55,7 @@ void getPassword(char password[], int maxLength) {
             password[index] = '\0';
             break;
         } else if (ch == '\b') {  
-		// nhan phim Backspace (\b), ky tu cuoi cung trong mang password se bi xaa (neu co). Ðong thoi, ky tu hien thi tren man hinh cung bi xoa bang cach su dung chuoi "\b \b".
+		// nhan phim Backspace (\b), ky tu cuoi cung trong mang password se bi xaa (neu co). Ãong thoi, ky tu hien thi tren man hinh cung bi xoa bang cach su dung chuoi "\b \b".
             if (index > 0) {
                 index--;
                 printf("\b \b");  // Xoa ki tu da hien thi 
@@ -249,7 +249,7 @@ void menu(){
 	int numScores = 0;
     int choice;
     do {
-        // Hien thi menu chính
+        // Hien thi menu chÃ­nh
         printf("+------------------------------------------+\n");
 		printf("%-8s %-33s %s\n","|","STUDENT MANAGEMENT SYSTEM", "|");
         printf("+------------------------------------------+\n");
@@ -315,7 +315,7 @@ void displayUsageInstructions() {// hien thi bang huong dan su dung
 void adminMenu(){
 	int choice;
     do {
-        // Hien thi menu chính
+        // Hien thi menu chÃ­nh
         printf("+------------------------------------------+\n");
 		printf("%-8s %-33s %s\n","|","STUDENT MANAGEMENT SYSTEM", "|");
         printf("+------------------------------------------+\n");
@@ -781,7 +781,7 @@ int findStudentIndex(struct student students[], int numStudents, const char* stu
     return -1;
 }
 
-// Ham chinh sua thông tin sinh viên
+// Ham chinh sua thÃ´ng tin sinh viÃªn
 void editStudent(struct student students[], int numStudents) {
     char studentId[20];
     int index;
@@ -830,7 +830,7 @@ void deleteStudentById(struct student students[], int *numStudents, const char* 
         if (strcmp(students[i].studentId, studentId) == 0) {
             printf("Deleting student with ID %s\n", studentId);
 
-            // Xac nhan xoa sinh viên
+            // Xac nhan xoa sinh viÃªn
             char confirmation;
             printf("Are you sure you want to delete student with ID %s? (y/n): ", studentId);
             scanf(" %c", &confirmation);
@@ -839,7 +839,7 @@ void deleteStudentById(struct student students[], int *numStudents, const char* 
                 return;
             }
 
-            // Di chuyen tat ca các phan tu sau sinh viên bi xoa lên mot vi tri 
+            // Di chuyen tat ca cÃ¡c phan tu sau sinh viÃªn bi xoa lÃªn mot vi tri 
             int j = i;
             for (j; j < *numStudents - 1; ++j) {
                 students[j] = students[j + 1];
@@ -863,7 +863,7 @@ void sortStudents(struct student students[], int numStudents, int sortOrder) {
             int compareResult = strcmp(students[j].name, students[j + 1].name);
             //neu lua chon la 1 va ten 1 lon hon ten 2 thi doi cho 
             if ((sortOrder == 1 && compareResult > 0) || (sortOrder == 2 && compareResult < 0)) {
-                // Hoan doi hai sinh viên
+                // Hoan doi hai sinh viÃªn
                 temp = students[j];
                 students[j] = students[j + 1];
                 students[j + 1] = temp;
@@ -1285,7 +1285,7 @@ int findTeacherIndex(struct Teacher teachers[], int numTeachers, const char* tea
     return -1;
 }
 
-// Ham chinh sua thông tin giao vien
+// Ham chinh sua thÃ´ng tin giao vien
 void editTeacher(struct Teacher teachers[], int numTeachers) {
     char teacherId[20];
     int index;
@@ -1332,7 +1332,7 @@ void deleteTeacherById(struct Teacher teachers[], int *numTeachers, const char* 
         if (strcmp(teachers[i].teacherId, teacherId) == 0) {
             printf("Deleting teacher with ID %s\n", teacherId);
 
-            // Xac nhan xoa sinh viên
+            // Xac nhan xoa sinh viÃªn
             char confirmation;
             printf("Are you sure you want to delete student with ID %s? (y/n): ", teacherId);
             scanf(" %c", &confirmation);
@@ -1341,7 +1341,7 @@ void deleteTeacherById(struct Teacher teachers[], int *numTeachers, const char* 
                 return;
             }
 
-            // Di chuyen tat ca các phan tu sau sinh viên bi xoa lên mot vi tri 
+            // Di chuyen tat ca cÃ¡c phan tu sau sinh viÃªn bi xoa lÃªn mot vi tri 
             int j = i;
             for (j; j < *numTeachers - 1; ++j) {
                 teachers[j] = teachers[j + 1];
@@ -1365,7 +1365,7 @@ void sortTeachers(struct Teacher teachers[], int numTeachers, int sortOrder) {
             int compareResult = strcmp(teachers[j].name, teachers[j + 1].name);
             //neu lua chon la 1 va ten 1 lon hon ten 2 thi doi cho 
             if ((sortOrder == 1 && compareResult > 0) || (sortOrder == 2 && compareResult < 0)) {
-                // Hoan doi hai sinh viên
+                // Hoan doi hai sinh viÃªn
                 temp = teachers[j];
                 teachers[j] = teachers[j + 1];
                 teachers[j + 1] = temp;

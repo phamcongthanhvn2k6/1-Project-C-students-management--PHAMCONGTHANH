@@ -1016,7 +1016,7 @@ void writeTeachersToFile(const char* filename, struct Teacher teachers[], int nu
     }
     int i=0;
 	for (i; i < numTeachers; i++) {
-        fprintf(file, "%s %s %s %02d/%02d/%04d %d %s %s %s %d\n",
+        fprintf(file, "%s %s %s %02d/%02d/%04d %d %s %s %s\n",
                 teachers[i].teacherId,
                 teachers[i].classroomId,
                 teachers[i].name,
@@ -1026,8 +1026,7 @@ void writeTeachersToFile(const char* filename, struct Teacher teachers[], int nu
                 teachers[i].gender,
                 teachers[i].email,
                 teachers[i].phone,
-                teachers[i].password,
-                teachers[i].numClasses);
+                teachers[i].password);
     }
     fclose(file);
 }
@@ -1039,7 +1038,7 @@ void readTeachersFromFile(const char* filename, struct Teacher teachers[], int *
         return;
     }
     int i = 0;
-    while (fscanf(file, "%s %s %s %d/%d/%d %d %s %s %s %d",
+    while (fscanf(file, "%s %s %s %d/%d/%d %d %s %s %s",
                   teachers[i].teacherId,
                   teachers[i].classroomId,
                   teachers[i].name,
@@ -1049,8 +1048,7 @@ void readTeachersFromFile(const char* filename, struct Teacher teachers[], int *
                   &teachers[i].gender,
                   teachers[i].email,
                   teachers[i].phone,
-                  teachers[i].password,
-                  &teachers[i].numClasses) != EOF) {
+                  teachers[i].password) != EOF) {
         i++;
     }
     *numTeachers = i;
@@ -1199,20 +1197,9 @@ void addTeacher(struct Teacher teachers[], int *numTeachers) {
 
         break;
     }
-    
-    while (1) {
-        printf("Enter Num Classes: ");
-        scanf("%s", newTeacher.numClasses);
+   
 
-        if (newTeacher.numClasses<0) {
-            printf("Num Classes cannot be empty. Please enter a valid Num Classes.\n");
-            continue;
-        }
-
-        break;
-    }
-
-      if (fprintf(file, "%s %s %s %d/%d/%d %d %s %s %s %d\n",
+      if (fprintf(file, "%s %s %s %d/%d/%d %d %s %s %s\n",
                newTeacher.teacherId,
                newTeacher.classroomId,
                newTeacher.name,
@@ -1222,8 +1209,7 @@ void addTeacher(struct Teacher teachers[], int *numTeachers) {
                newTeacher.gender,
                newTeacher.email,
                newTeacher.phone,
-               newTeacher.password,
-               newTeacher.numClasses) < 0) {
+               newTeacher.password) < 0) {
         perror("Error writing to file");
         fclose(file);
         return;
@@ -1335,9 +1321,6 @@ void editTeacher(struct Teacher teachers[], int numTeachers) {
 
     printf("Enter new Password: ");
     scanf("%s", teachers[index].password);
-    
-    printf("Enter new Num Classes: ");
-    scanf("%s", teachers[index].numClasses);
 
     printf("Teacher information updated successfully!\n");
 }

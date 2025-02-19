@@ -70,8 +70,8 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=main.c
-Folder=
+FileName=function.c
+Folder=src
 Compile=1
 Link=1
 Priority=1000
@@ -80,7 +80,7 @@ BuildCmd=
 CompileCpp=0
 
 [Unit8]
-FileName=datatype.h
+FileName=function.h
 Folder=include
 Compile=1
 Link=1
@@ -90,10 +90,10 @@ BuildCmd=
 CompileCpp=0
 
 [Unit9]
-FileName=function.h
-Folder=include
-Compile=1
-Link=1
+FileName=score.bin
+Folder=data
+Compile=0
+Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
@@ -118,18 +118,19 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=..\..\..\Máy tính\1 Project C students management\score.bin
-Folder=data
-Compile=0
-Link=0
+FileName=main.c
+Folder=
+Compile=1
+Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+CompileCpp=0
 
 [Unit7]
-FileName=function.c
+FileName=datatype.h
 CompileCpp=0
-Folder=src
+Folder=include
 Compile=1
 Link=1
 Priority=1000

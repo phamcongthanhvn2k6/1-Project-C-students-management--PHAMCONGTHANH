@@ -14,13 +14,13 @@ struct date {
     int year;
 };
 /*
-123456789 101 NguyenVanA 01/01/2000 1 nguyenvana@example.com 0123456789 matkhauA 1
-234567890 102 TranThiB 02/02/2001 0 tranthib@example.com 0987654321 matkhauB 1
-345678901 103 LeThiC 03/03/2002 0 lethic@example.com 0912345678 matkhauC 1
-456789012 104 PhamVanD 04/04/2003 1 phamvand@example.com 0923456781 matkhauD 1
-567890123 105 VuThiE 05/05/2004 0 vuthie@example.com 0934567892 matkhauE 1
-678901234 106 HoangVanF 06/06/2005 1 hoangvanf@example.com 0945678903 matkhauF 1
-789012345 107 BuiThiG 07/07/2006 0 buithig@example.com 0956789014 matkhauG 1
+123456789 101 NguyenVanA 01/01/2000 1 nguyenvana@example.com 0123456789 matkhauA
+234567890 102 TranThiB 02/02/2001 0 tranthib@example.com 0987654321 matkhauB
+345678901 103 LeThiC 03/03/2002 0 lethic@example.com 0912345678 matkhauC
+456789012 104 PhamVanD 04/04/2003 1 phamvand@example.com 0923456781 matkhauD
+567890123 105 VuThiE 05/05/2004 0 vuthie@example.com 0934567892 matkhauE
+678901234 106 HoangVanF 06/06/2005 1 hoangvanf@example.com 0945678903 matkhauF
+789012345 107 BuiThiG 07/07/2006 0 buithig@example.com 0956789014 matkhauG
 */
 
 /*
@@ -104,7 +104,7 @@ struct Classroom {
     int classCount;
     char teacherId[10];
     char classroomName[10];
-    int studentCount; // Thêm bi?n d? theo dõi s? lu?ng sinh viên
+    int studentCount;
 };
 
 struct Teacher {
@@ -116,7 +116,6 @@ struct Teacher {
     char email[30];
     char phone[20];
     char password[20];
-    int numClasses;
 };
 /*
 admin1 1
@@ -183,4 +182,4 @@ struct score {
     double midtermExamScore;
     double finalExamScore;
 };
-#endif  // K?t thúc b?o v? t?p tiêu d?
+#endif
